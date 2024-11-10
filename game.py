@@ -1,7 +1,6 @@
 import random
 import time
 
-from draw import draw_d4, draw_d20
 from tav import Tav
 
 def generate_monster() -> int:
@@ -41,4 +40,44 @@ if __name__ == '__main__':
 
     print_dramatic_text('Our adventure begins in a shady tavern ...')
 
-    # d20(20)
+    wins = 0
+    while True:
+        print()
+        print_dramatic_text('A monster approaches!')
+
+        requirement = generate_monster()
+        buff = input('Press \'a\' for advantage, \'g\' for guidance, & Enter to roll:')
+
+        result = tav.roll(buff)
+
+        if result < requirement:
+            print()
+            print_dramatic_text('You needed ' + requirement + ', you rolled ' + result + ' ...')
+            print()
+            print_dramatic_text('       G A M E   O V E R')
+            print()
+            break
+        if result == 1:
+            print()
+            print_dramatic_text('       CRITICAL FAILURE')
+            print()
+            print_dramatic_text('       G A M E   O V E R')
+            print()
+            break
+        if result == 20:
+            wins += 1
+            print()
+            print_dramatic_text('       CRITICAL SUCCESS')
+            print()
+        else:
+            wins += 1
+            print()
+            print_dramatic_text('You needed ' + requirement + ', you rolled ' + result + ' ... well done!')
+            print()
+
+        if wins >= 3:
+            print()
+            print_dramatic_text(tav.name + ' the ' + tav.role + ' has completed the long journey!')
+            print()
+            print_dramatic_text('           {  fin  }')
+            break

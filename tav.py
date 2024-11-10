@@ -1,4 +1,5 @@
 import random
+from draw import draw_d4, draw_d20
 
 class Tav:
     def __init__(self, name: str, role: str):
@@ -41,5 +42,28 @@ class Tav:
         print('Wisdom           ' + str(self.wisdom))
         print('---------------------------------------')
 
-    def roll(self, input: str) -> int:
-        return 20
+    def roll(self, buff: str) -> int:
+        if buff == 'a':
+            first = random.randint(1, 20)
+            draw_d20(first)
+
+            second = random.randint(1, 20)
+            draw_d20(second)
+
+            if first > second:
+                return first
+            else:
+                return second
+        elif buff == 'g':
+            roll = random.randint(1, 20)
+            draw_d20(roll)
+
+            guidance = random.randint(1, 4)
+            draw_d4(guidance)
+
+            return roll + guidance
+        else:
+            roll = random.randint(1, 20)
+            draw_d20(roll)
+
+            return roll
