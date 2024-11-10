@@ -23,7 +23,7 @@ def generate_monster() -> int:
         return 12
     if r == 6:
         eye = '\U0001F441'
-        print('+++++++++ ' + eye +  ' EVIL BEHOLDER ' + eye +  ' +++++++++')
+        print('+++++++++ ' + eye + '  EVIL BEHOLDER ' + eye + '  +++++++++')
         print('+                                     +')
         print('+          roll required:  18         +')
         print('+                                     +')
@@ -53,13 +53,17 @@ if __name__ == '__main__':
     tav = Tav(name, role)
     tav.print_character_sheet()
 
+    print()
     print_dramatic_text('Our adventure begins in a shady tavern ...')
 
     wins = 0
     while True:
         print_dramatic_text('A monster approaches!')
+        print()
 
         requirement = generate_monster()
+        print()
+
         buff = input('Press \'a\' for advantage, \'g\' for guidance, & enter to roll: ')
 
         result = tav.roll(buff)
@@ -67,16 +71,16 @@ if __name__ == '__main__':
         if result < requirement:
             print_dramatic_text('You needed ' + str(requirement) + ', you rolled ' + str(result) + ' ...')
             print()
-            print_dramatic_text('       G A M E   O V E R')
+            print_dramatic_text('      G A M E   O V E R')
             break
         if result == 1:
-            print_dramatic_text('       CRITICAL FAILURE')
+            print_dramatic_text('      CRITICAL FAILURE')
             print()
-            print_dramatic_text('       G A M E   O V E R')
+            print_dramatic_text('      G A M E   O V E R')
             break
         if result == 20:
             wins += 1
-            print_dramatic_text('       CRITICAL SUCCESS')
+            print_dramatic_text('      CRITICAL SUCCESS')
             print()
         else:
             wins += 1
@@ -88,5 +92,5 @@ if __name__ == '__main__':
             print()
             print_dramatic_text(tav.name + ' the ' + tav.role + ' has completed the long journey!')
             print()
-            print_dramatic_text('           {  fin  }')
+            print_dramatic_text('          {  fin  }')
             break
