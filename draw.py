@@ -10,7 +10,7 @@
 
 # for additional formating options, see: https://stackabuse.com/how-to-print-colored-text-in-python/
 
-def d4(value: int) -> None:
+def draw_d4(value: int) -> None:
     print("""\033[1;32m
           ;;
         ,;  ;,
@@ -18,14 +18,14 @@ def d4(value: int) -> None:
       ,;      ;,
      ,;        ;,
     ,;          ;, 
-   ,;            ;,
+   ,;     {}     ;,
   ,;              ;,
  ,;                ;, 
-,;        {}         ;,
+,;                   ;,
 ::::::::::::::::::::::
     """.format(value))
 
-def d6(value: int) -> None:
+def draw_d6(value: int) -> None:
     print("""\033[1;32m
  ::::::::::::::
  ::          ::  
@@ -38,7 +38,7 @@ def d6(value: int) -> None:
     """.format(value))
 
 
-def d20(value: int) -> None:
+def draw_d20(value: int) -> None:
     # account for single and double digit numbers moving parts of the dice
     if value > 9:
         print("""\033[1;32m             
