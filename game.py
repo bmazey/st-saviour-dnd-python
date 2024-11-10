@@ -7,15 +7,27 @@ def generate_monster() -> int:
     r = random.randint(1, 6)
     if r == 1 or r == 2 or r == 3:
         pixie = '\U0001F9DA'
-        print('A SWARM OF PIXIES')
+        print('+++++++ ' + pixie + ' A SWARM OF PIXIES ' + pixie + ' +++++++')
+        print('+                                     +')
+        print('+          roll required:  8          +')
+        print('+                                     +')
+        print('+++++++++++++++++++++++++++++++++++++++')
         return 8
     if r == 4 or r == 5:
         mask = '\U0001F3AD'
-        print('DISGUISED MIMIC')
+        print('++++++++ ' + mask + ' DISGUISED MIMIC ' + mask + ' ++++++++')
+        print('+                                     +')
+        print('+          roll required:  12         +')
+        print('+                                     +')
+        print('+++++++++++++++++++++++++++++++++++++++')
         return 12
     if r == 6:
         eye = '\U0001F441'
-        print('EVIL BEHOLDER')
+        print('+++++++++ ' + eye +  ' EVIL BEHOLDER ' + eye +  ' +++++++++')
+        print('+                                     +')
+        print('+          roll required:  18         +')
+        print('+                                     +')
+        print('+++++++++++++++++++++++++++++++++++++++')
         return 18
 
     return -1
@@ -48,23 +60,23 @@ if __name__ == '__main__':
         print_dramatic_text('A monster approaches!')
 
         requirement = generate_monster()
-        buff = input('Press \'a\' for advantage, \'g\' for guidance, & Enter to roll: ')
+        buff = input('Press \'a\' for advantage, \'g\' for guidance, & enter to roll: ')
 
         result = tav.roll(buff)
 
         if result < requirement:
             print_dramatic_text('You needed ' + str(requirement) + ', you rolled ' + str(result) + ' ...')
             print()
-            print_dramatic_text('    G A M E   O V E R')
+            print_dramatic_text('       G A M E   O V E R')
             break
         if result == 1:
-            print_dramatic_text('    CRITICAL FAILURE')
+            print_dramatic_text('       CRITICAL FAILURE')
             print()
-            print_dramatic_text('    G A M E   O V E R')
+            print_dramatic_text('       G A M E   O V E R')
             break
         if result == 20:
             wins += 1
-            print_dramatic_text('    CRITICAL SUCCESS')
+            print_dramatic_text('       CRITICAL SUCCESS')
             print()
         else:
             wins += 1
@@ -76,5 +88,5 @@ if __name__ == '__main__':
             print()
             print_dramatic_text(tav.name + ' the ' + tav.role + ' has completed the long journey!')
             print()
-            print_dramatic_text('        {  fin  }')
+            print_dramatic_text('           {  fin  }')
             break
