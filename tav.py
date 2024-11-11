@@ -5,6 +5,7 @@ class Tav:
     def __init__(self, name: str, role: str):
         self.name = name
         self.role = role
+        self.level = 1
 
         self.strength = 0
         self.dexterity = 0
@@ -31,8 +32,9 @@ class Tav:
         sword = '\U00002694'
         
         print('====== ' + fire + ' BLUDGEONS & FLAGONS ' + fire + ' ======')
-        print('Name: ' + self.name)
-        print('Role: ' + self.role)
+        print('Name:  ' + self.name)
+        print('Role:  ' + self.role)
+        print('Level: ' + self.level)
         print('--------- ' + sword + ' CHARACTER STATS ' + sword + ' ---------')
         print('Strength         ' + str(self.strength))
         print('Dexterity        ' + str(self.dexterity))
