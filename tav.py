@@ -34,7 +34,7 @@ class Tav:
         print('====== ' + fire + ' BLUDGEONS & FLAGONS ' + fire + ' ======')
         print('Name:  ' + self.name)
         print('Role:  ' + self.role)
-        print('Level: ' + self.level)
+        print('Level: ' + str(self.level))
         print('--------- ' + sword + ' CHARACTER STATS ' + sword + ' ---------')
         print('Strength         ' + str(self.strength))
         print('Dexterity        ' + str(self.dexterity))
