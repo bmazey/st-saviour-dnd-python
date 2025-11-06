@@ -1,6 +1,7 @@
 import random
 import time
 
+from player import Player
 from draw import draw_d20, draw_d6, draw_d4
 
 def print_dramatic_text(text: str, delay=0.1):
@@ -16,12 +17,19 @@ if __name__ == '__main__':
     # any buffs / debuffs?
     # any critical success / failure?
 
+    player_1 = Player('Angel Fre', 'Doctor', 10)
+    player_1.attack()
+
+    player_2 = Player('Miranda', 'Barbarian', 20)
+    player_2.attack()
+
     name = input('Name: ')
     role = input('Role: ')
 
-    print('Your name is ' + name + ' and your role is ' + role + '.')
+    player = Player(name, role, 10)
+    print('Your name is ' + player.name + ' and your role is ' + player.role + '.')
     print_dramatic_text('Our adventure begins in a shady tavern ...')
 
-    input('Press Enter to roll a d20.')
-    roll = random.randint(1, 20)
-    draw_d20(roll)
+    input('Press Enter to roll a d6.')
+    roll = random.randint(1, 6)
+    draw_d6(roll)
