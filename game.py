@@ -22,6 +22,6 @@ if __name__ == '__main__':
     print('Your name is ' + name + ' and your role is ' + role + '.')
     print_dramatic_text('Our adventure begins in a shady tavern ...')
 
-    input('Press Enter to roll a d20.')
-    roll = random.randint(1, 20)
-    draw_d20(roll)
+    input('Press Enter to roll a d6.')
+    roll = random.randint(1, 6)
+    draw_d6(roll)
